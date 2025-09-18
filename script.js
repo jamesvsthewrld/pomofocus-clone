@@ -3,6 +3,8 @@ const pomoBtn = document.getElementById('pomo-btn');
 const shortBtn = document.getElementById('short-btn');
 const longBtn = document.getElementById('long-btn');
 const startBtn = document.getElementById('start-btn');
+const pomoCountDisplay = document.getElementById('pomo-count');
+const focusString = document.getElementById('focus-string');
 const sound = new Audio('click-sound.mp3');
 const alarm = new Audio('alarm-sound.mp3'); 
 let isRunning = false;
@@ -50,20 +52,23 @@ const startTimer = () => {
 
             if (currentMode === 'pomodoro') {
                 pomoCount++;
-                if (pomoCount < 4) {
-                    resetMode(300, 'short');
-                    setActiveButton(shortBtn);
-                } else {
+                pomoCountDisplay.textContent = pomoCount;
+                updateFocusString(pomoCount); 
+                if (pomoCount % 4 === 0) {
+                    // Every 4th pomodoro, take a long break
                     resetMode(900, 'long');
                     setActiveButton(longBtn);
-                    pomoCount = 0;
+                } else {
+                    // Otherwise, take a short break
+                    resetMode(300, 'short');
+                    setActiveButton(shortBtn);
                 }
             } else {
                 resetMode(1500, 'pomodoro');
                 setActiveButton(pomoBtn);
             }
         }
-    }, 1000);
+    }, 1);
 };
 
 startBtn.addEventListener('click', () => {
@@ -94,3 +99,17 @@ document.addEventListener('keydown', e => {
         startBtn.click();
     }
 });
+
+function updateFocusString(count) {
+    const totalMinutes = count * 25;
+    const hours = Math.floor(totalMinutes / 60);
+    const minutes = totalMinutes % 60;
+
+    if (hours > 0 && minutes > 0) {
+        focusString.textContent = `(${hours} hour${hours > 1 ? 's' : ''} and ${minutes} min of focus)`;
+    } else if (hours > 0) {
+        focusString.textContent = `(${hours} hour${hours > 1 ? 's' : ''} of focus)`;
+    } else {
+        focusString.textContent = `(${minutes} min of focus)`;
+    }
+}

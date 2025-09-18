@@ -148,3 +148,17 @@ button{
     transform: translateY(6px);
 }
 
+.counter-container {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px 0;
+    border-radius: 6px;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.counter-text, #pomo-count, #focus-string {
+    font-size: 12px;
+    background: transparent;
+    display: inline-block;
+    text-align: center;
+}
