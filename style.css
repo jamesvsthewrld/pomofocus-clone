@@ -1,51 +1,150 @@
+html {
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 0px; 
+    background: transparent; 
+}
+
 * {
+    margin: auto;
+    font-family: "Courier New", sans-serif;
+    background-color: #121212;
+    color: white;
+}
+
+button{
+    cursor: pointer;
+    border: none;
+    margin: 0;
+    font-family: inherit;
+    transition: background 0.2s, color 0.5s;
+}
+
+.top-container {
+    padding: 20px 0px;
+    max-width: 620px;
+}
+
+.navbar-main {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar-main ul {
+    display: flex;
+    gap: 24px; 
+    list-style: none;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: "Montserrat", sans-serif;
 }
 
-body {
-    display: flex;
+
+.navbar-main ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 6px 12px;
+}
+
+.navbar-main .logo {
+    margin: 0;
+    padding-left: 10px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.divider {
+    background-color: rgba(255, 255, 255, 0.1);
+    height: 1px;
+    max-width: 620px;
+    margin-bottom: 40px;
+}
+
+.main-container {
+    padding: 0;
+    max-width: 620px;
+}
+
+.content-main {
+    text-align: center;
+    max-width: 480px;
+}
+
+.timer-container {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px 0;
+    border-radius: 6px;
+    width: 100%;
+}
+
+.timer-nav {
+    display: inline-flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background: #000000;
 }
 
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2em;
-    color: #ffffff;
-    background-color:  rgba(255, 255, 255, 0.2);
-    border-radius: 2em;
-    padding: 4em 3em;    
+.timer-style {
+    font-size: 96px;
+    font-weight: bold;
+    margin-top: 10px;
+    background: transparent;
+    font-family: 'Courier New', Courier, monospace;
+    display: inline-block;
+    text-align: center;
+    letter-spacing: 0;
 }
 
-.title {
-    font-size: 2.5em;
+.timer-nav, timer-style {
+    background: transparent; 
 }
 
-.timer-display {
-    font-size: 10em;
-    font-weight: 700;
+.nav-btn {
+    color: white;
+    font-size: 12px;
+    padding: 2px 12px;
+    height: 28px;
+    box-shadow: none;
+    opacity: 1;
+    border-radius: 4px;
+    background: transparent;
+}
+
+.nav-btn:hover {
+    background-color: rgba(0,0,0,0.3);
+}
+
+.nav-btn.active {
+    background-color: rgba(0,0,0,0.3);
+    color: #fff;
 }
 
 .controls {
-    display: flex;
-    gap: 1em;
+    background: transparent;
 }
 
-button {
-    font-size: 2em;
-    font-weight: 500;
-    letter-spacing: 1px;
-    padding: 0.2em 1em;
-    border-radius: 0.5em;
-    border: none;
-    cursor: pointer;
-    transition: 0.2s ease-in-out;
+.control-btn {
+    padding: 0 12px;
+    box-shadow: 0 6px 0 hsl(358, 0%, 92%);
+    font-size: 18px;
+    height: 55px;
+    margin: 15px 0 10px 0;
+    color: black;
+    text-transform: uppercase;
+    width: 200px;
+    background-color: white;
+    font-weight: bold;
+    border-radius: 4px;
 }
+
+.control-btn.pressed {
+    box-shadow: none;
+    transform: translateY(6px);
+}
+

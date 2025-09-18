@@ -8,18 +8,32 @@
     <title>Pomodoro Timer</title>
 </head>
 <body>
-    
-    <div class="container">
-        <h1>Pomodoro Timer</h1>
-        
-        <p class="timer-display" id="timer-display">25:00</p>
-
-        <div class="controls">
-            <button id="start-btn">Start</button>
-            <button id="pause-btn">Pause</button>
-            <button id="reset-btn">Reset</button>
+    <div class="top-container">
+        <div class="navbar-main">
+            <p class="logo">Pomodoro</p>
+            <ul>
+                <li><a class="nav-btn clickable">Home</a></li>
+                <li><a class="nav-btn clickable">About</a></li>
+            </ul>
         </div>
     </div>
 
+    <div class="divider"></div>
+
+    <div class="main-container">
+        <div class="content-main">
+            <div class="timer-container">
+                <div class="timer-nav">
+                    <button id="pomo-btn" class="nav-btn active">Pomodoro</button>
+                    <button id="short-btn" class="nav-btn">Short Break</button>
+                    <button id="long-btn" class="nav-btn">Long Break</button>
+                </div>
+                <p id="timer-display" class="timer-style">25:00</p>
+                <div class="controls">
+                    <button id="start-btn" class="control-btn">Start</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
